@@ -10,8 +10,6 @@
         seg.u Variables
 	org $80
 
-Temp		.byte
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Code segment
 
@@ -23,13 +21,13 @@ Start
 
 
 Playfield
-	lda #$aa
+	lda #$04
         sta COLUBK
         
-        lda #$11
+        lda #$F0
         sta COLUPF
         
-        lda #%000011111
+        lda #%11111
         sta PF0
         
 
@@ -54,6 +52,4 @@ NextFrame
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Epilogue
 
-	org $fffc
-        .word Start	; reset vector
-        .word Start	; BRK vector
+	END_ROM

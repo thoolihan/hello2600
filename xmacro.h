@@ -30,3 +30,9 @@
         bne .waittimer
         sta WSYNC
     ENDM
+    
+    MAC END_ROM
+    	org $fffc
+        .word Start	; reset vector
+        .word Start	; BRK vector
+    ENDM
